@@ -13,11 +13,11 @@ As Rails plugin
 
   ruby script/plugin install git://github.com/danielvlopes/tabs_helper.git
 
-== USAGE
+== Usage
 
 Just install the plugin and see the example below:
 
-== EXAMPLE
+== Example
 
 === Controller
 
@@ -110,11 +110,11 @@ This plugin don't came with any kind of asset like image or css. The layout of t
 
 You can read a full tutorial and working demo of the technique above in this "link":http://www.google.com/translate?langpair=pt|en&u=http://blog.areacriacoes.com.br//2009/1/23/bordas-arredondas-para-menus-em-abas
 
-== LICENSE
+== License
 
 Tabs Helper is released under the MIT License.
 
-== AUTHOR
+== Author
 
 Authors::   Daniel Lopes
 Blog::      {http://blog.areacriacoes.com.br}[http://blog.areacriacoes.com.br]
