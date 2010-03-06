@@ -1,10 +1,11 @@
 require 'rubygems'
 require 'test/unit'
+require 'action_controller'
+require 'action_view/test_case'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
-require 'menu_builder'
+Dir["#{File.dirname(__FILE__)}/support/*.rb"].each { |f| require f }
 
-class Test::Unit::TestCase
-end
+require 'menu_builder'

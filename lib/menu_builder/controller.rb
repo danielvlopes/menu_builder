@@ -1,9 +1,9 @@
 module MenuBuilder
   module Controller
 
-    def current_tab(name, options = {})
+    def menu_item(name, options = {})
       before_filter(options) do |controller|
-        controller.instance_variable_set('@current_tab', name)
+        controller.instance_variable_set('@menu_item', name)
       end
     end
 

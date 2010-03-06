@@ -30,11 +30,11 @@ Just install the plugin and see the example below:
 
 ==== ERB code
 
-  <% tabs :id=>"mainMenu", :class=>"menu" do |tab| %>
-    <%= tab.account 'Account', account_path, :style => 'float: right' %>
-    <%= tab.users 'Users', users_path, :style => 'float: right' %>
-    <%= tab.mydashboard 'Dashboard', '/' %>
-    <%= tab.projects 'Projects', projects_path %>
+  <% menu :id=>"mainMenu", :class=>"menu" do |m| %>
+    <%= m.account 'Account', account_path, :style => 'float: right' %>
+    <%= m.users 'Users', users_path, :style => 'float: right' %>
+    <%= m.mydashboard 'Dashboard', '/' %>
+    <%= m.projects 'Projects', projects_path %>
   <% end %>
 
 ==== HTML Result
@@ -51,16 +51,12 @@ Just install the plugin and see the example below:
 Also is possible to pass blocks instead of simple strings for content.
 In this way you can create tabs with icons. Like below:
 
-  <% tabs do |tab| %>
-    <% tab.account account_path do %>
-  		<%= image_tag "account.jpg" /> Accounts
+  <% menu do |tab| %>
+    <% m.account account_path do %>
+      <%= image_tag "icon.jpg" /> Accounts
     <% end %>
-    <% tab.users users_path do %>
-  		<%= image_tag "user.jpg" /> Users
-    <% end %>
-    <% tab.posts posts_path do %>
-  		<%= image_tag "posts.jpg" /> Posts
-    <% end %>
+    <%= m.users "Users", users_path %>
+    <%= m.posts "Posts", posts_path %>
   <% end %>
 
 == CSS and HTML
