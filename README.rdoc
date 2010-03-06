@@ -1,6 +1,125 @@
 = menu_builder
 
-Description goes here.
+With this gem/plugin you get a helper to define menus and also can control the current item of menu
+in controller. Easy like always should be!
+
+== Instalation
+
+As a Rail2.1+ gem
+  
+  gem.config "tabs_helper"
+
+As Rails plugin
+
+  ruby script/plugin install git://github.com/danielvlopes/tabs_helper.git
+
+== USAGE
+
+Just install the plugin and see the example below:
+
+== EXAMPLE
+
+=== Controller
+
+  class DashboardController < ApplicationController
+    current_tab :mydashboard
+    ...
+  end
+
+=== View
+
+==== ERB code
+
+  <% tabs :id=>"mainMenu", :class=>"menu" do |tab| %>
+    <%= tab.account 'Account', account_path, :style => 'float: right' %>
+    <%= tab.users 'Users', users_path, :style => 'float: right' %>
+    <%= tab.mydashboard 'Dashboard', '/' %>
+    <%= tab.projects 'Projects', projects_path %>
+  <% end %>
+
+==== HTML Result
+
+   <ul id="mainMenu" class="menu">
+     <li><a href="/accounts">Account</a></li>
+     <li><a href="/users">Users</a></li>
+     <li><a href="/" class="current">Dashboard</a></li>
+     <li><a href="/projects">Projects</a></li>
+   </ul>
+
+==== Blocks for content
+
+Also is possible to pass blocks instead of simple strings for content.
+In this way you can create tabs with icons. Like below:
+
+  <% tabs do |tab| %>
+    <% tab.account account_path do %>
+  		<%= image_tag "account.jpg" /> Accounts
+    <% end %>
+    <% tab.users users_path do %>
+  		<%= image_tag "user.jpg" /> Users
+    <% end %>
+    <% tab.posts posts_path do %>
+  		<%= image_tag "posts.jpg" /> Posts
+    <% end %>
+  <% end %>
+
+== CSS and HTML
+
+This plugin don't came with any kind of asset like image or css. The layout of tabs and the way of show it depends of you css architecture. You can use any kind of technique with html UL and LI, like below:
+
+  <html>
+  <head>
+    <style type="text/css" charset="utf-8">
+      #header ul { font-family:Tahoma; position: absolute; margin:0; list-style:none; }
+      #header li { display:inline; margin:0; padding:0; }
+
+      #header a {
+         float:left;
+         background: url(corner_left.jpg) no-repeat left top;
+         margin:0;
+         padding:0 0 0 4px;
+         text-decoration:none;
+      }
+      #header a span {
+         float:left;
+         display:block;
+         background: url(corner_right.jpg) no-repeat right top;
+         padding:4px 14px 4px 6px;
+         color:#FFF;
+      }
+
+      #header a:hover span { color:#FFF; }
+      #header a:hover { background-position:0% -43px; }
+      #header a:hover span { background-position:100% -43px; }
+      #header #current a { background-position:0% -43px; }
+      #header #current a span { background-position:100% -43px; }
+    </style>
+  </head>
+
+  <body>
+    <div id="header">
+      <ul>
+        <li><a href="#"><span>Home</span></a></li>
+        <li><a href="#"><span>Quem Somos</span></a></li>
+        <li><a href="#"><span>Portif&oacute;lio</span></a></li>
+        <li><a href="#"><span>Contato</span></a></li>
+      </ul>
+    </div>
+  </body>
+  </html>
+
+You can read a full tutorial and working demo of the technique above in this "link":http://www.google.com/translate?langpair=pt|en&u=http://blog.areacriacoes.com.br//2009/1/23/bordas-arredondas-para-menus-em-abas
+
+== LICENSE
+
+Tabs Helper is released under the MIT License.
+
+== AUTHOR
+
+Authors::   Daniel Lopes
+Blog::      {http://blog.areacriacoes.com.br}[http://blog.areacriacoes.com.br]
+Github::    {http://github.com/danielvlopes}[http://github.com/danielvlopes]
+Twitter::   {danielvlopes}[http://blog.areacriacoes.com.br]
 
 == Note on Patches/Pull Requests
  
