@@ -7,11 +7,11 @@ in controller. Easy like always should be!
 
 As a Rail2.1+ gem
   
-  gem.config "tabs_helper"
+  gem.config "menu_builder"
 
 As Rails plugin
 
-  ruby script/plugin install git://github.com/danielvlopes/tabs_helper.git
+  ruby script/plugin install git://github.com/danielvlopes/menu_builder.git
 
 == Usage
 
@@ -22,7 +22,7 @@ Just install the plugin and see the example below:
 === Controller
 
   class DashboardController < ApplicationController
-    current_tab :mydashboard
+    menu_item :mydashboard
     ...
   end
 
@@ -49,9 +49,9 @@ Just install the plugin and see the example below:
 ==== Blocks for content
 
 Also is possible to pass blocks instead of simple strings for content.
-In this way you can create tabs with icons. Like below:
+In this way you can create menu item with icons. Like below:
 
-  <% menu do |tab| %>
+  <% menu do |m| %>
     <% m.account account_path do %>
       <%= image_tag "icon.jpg" /> Accounts
     <% end %>
@@ -61,7 +61,9 @@ In this way you can create tabs with icons. Like below:
 
 == CSS and HTML
 
-This plugin don't came with any kind of asset like image or css. The layout of tabs and the way of show it depends of you css architecture. You can use any kind of technique with html UL and LI, like below:
+This plugin don't came with any kind of asset like image or css. 
+The layout of menu depends of your css. You can use any kind of CSS technique  you want, 
+like below:
 
   <html>
   <head>
@@ -104,11 +106,8 @@ This plugin don't came with any kind of asset like image or css. The layout of t
   </body>
   </html>
 
-You can read a full tutorial and working demo of the technique above in this "link":http://www.google.com/translate?langpair=pt|en&u=http://blog.areacriacoes.com.br//2009/1/23/bordas-arredondas-para-menus-em-abas
-
-== License
-
-Tabs Helper is released under the MIT License.
+You can read a full tutorial and see a working demo of above in this 
+{link}[http://www.google.com/translate?langpair=pt|en&u=http://blog.areacriacoes.com.br//2009/1/23/bordas-arredondas-para-menus-em-abas]
 
 == Author
 
@@ -124,8 +123,11 @@ Twitter::   {danielvlopes}[http://blog.areacriacoes.com.br]
 * Add tests for it. This is important so I don't break it in a
   future version unintentionally.
 * Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+* Send me a pull request :)
+
+== License
+
+MenuBuilder is released under the MIT License.
 
 == Copyright
 
