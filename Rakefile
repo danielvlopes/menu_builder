@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "menu_builder"
-    gem.summary = %Q{ Killer solutions for menus and tabs for Rails }
-    gem.description = %Q{ Some helpers for define current tab (or item) of menu in controller and also create the menu in view. }
+    gem.summary = %Q{ Killer solution for menus and tabs in Rails }
+    gem.description = %Q{ helper and controller macros to define current menu item and also create the menu in view. }
     gem.email = "danielvlopes@gmail.com"
     gem.homepage = "http://github.com/danielvlopes/menu_builder"
     gem.authors = ["Daniel Lopes"]
