@@ -26,5 +26,3 @@ module MenuBuilder
     
   end
 end
-
-ActionView::Base.send(:include, MenuBuilder::ViewHelpers)

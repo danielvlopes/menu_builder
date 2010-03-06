@@ -1,4 +1,5 @@
-module MenuBuilder
-  autoload :Controller, 'menu_builder/controller'
-  autoload :ViewHelpers, 'menu_builder/view'
-end
+require 'menu_builder/controller'
+require 'menu_builder/view'
+
+ActionController::Base.extend(MenuBuilder::Controller)
+ActionView::Base.send(:include, MenuBuilder::ViewHelpers)

@@ -23,7 +23,11 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "init.rb",
      "lib/menu_builder.rb",
+     "lib/menu_builder/controller.rb",
+     "lib/menu_builder/view.rb",
+     "menu_builder.gemspec",
      "test/helper.rb",
      "test/test_menu_builder.rb"
   ]

@@ -9,5 +9,3 @@ module MenuBuilder
     
   end
 end
-
-ActionController::Base.extend(MenuBuilder::Controller)
