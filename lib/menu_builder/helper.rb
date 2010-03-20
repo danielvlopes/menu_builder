@@ -21,7 +21,13 @@ module MenuBuilder
     def menu(options={})
       concat tag(:ul, options, true)
       yield Menu.new(self)
-      concat "</ul>"
+      safe_concat "</ul>"
+    end
+
+    unless ActionView::Base.method_defined?(:safe_concat)
+      def safe_concat(*args)
+        concat(*args)
+      end
     end
   end
 end
