@@ -30,7 +30,7 @@ Just install the plugin and see the example below:
 
 ==== ERB code
 
-  <% menu :id=>"mainMenu", :class=>"menu" do |m| %>
+  <% menu(:id=>"mainMenu", :class=>"menu") do |m| %>
     <%= m.account 'Account', account_path, :style => 'float: right' %>
     <%= m.users 'Users', users_path, :style => 'float: right' %>
     <%= m.mydashboard 'Dashboard', '/' %>

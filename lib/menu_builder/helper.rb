@@ -21,13 +21,13 @@ module MenuBuilder
     def menu(options={})
       concat tag(:ul, options, true)
       yield Menu.new(self)
-      safe_concat "</ul>"
+      concat safe_html("</ul>")
     end
 
-    unless ActionView::Base.method_defined?(:safe_concat)
-      def safe_concat(*args)
-        concat(*args)
-      end
+  private
+    def safe_html(html)
+      html.respond_to?(:html_safe) ? html.html_safe : html
     end
+    
   end
 end
