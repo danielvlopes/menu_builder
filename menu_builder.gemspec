@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Daniel Lopes"]
-  s.date = %q{2010-03-06}
-  s.description = %q{ Some helpers for define current tab (or item) of menu in controller and also create the menu in view. }
+  s.date = %q{2010-03-20}
+  s.description = %q{ helper and controller macros to define current menu item and also create the menu in view. }
   s.email = %q{danielvlopes@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.6}
-  s.summary = %q{Killer solutions for menus and tabs for Rails}
+  s.summary = %q{Killer solution for menus and tabs in Rails}
   s.test_files = [
     "test/controller_test.rb",
      "test/helper_test.rb",
