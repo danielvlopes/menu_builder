@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Daniel Lopes"]
-  s.date = %q{2010-03-20}
+  s.date = %q{2010-06-23}
   s.description = %q{ helper and controller macros to define current menu item and also create the menu in view. }
   s.email = %q{danielvlopes@gmail.com}
   s.extra_rdoc_files = [

@@ -5,13 +5,13 @@ in controller. Easy like always should be!
 
 == Instalation
 
-As a Rail2.1+ gem
+Rail2
   
-  gem.config "menu_builder"
+  gem.config "menu_builder", :version => '0.2.1'
+  
+Rails3
 
-As Rails plugin
-
-  ruby script/plugin install git://github.com/danielvlopes/menu_builder.git
+  gem "menu_builder", '>=0.2.2'
 
 == Usage
 
@@ -30,7 +30,7 @@ Just install the plugin and see the example below:
 
 ==== ERB code
 
-  <% menu(:id=>"mainMenu", :class=>"menu") do |m| %>
+  <%= menu(:id=>"mainMenu", :class=>"menu") do |m| %>
     <%= m.account 'Account', account_path, :style => 'float: right' %>
     <%= m.users 'Users', users_path, :style => 'float: right' %>
     <%= m.mydashboard 'Dashboard', '/' %>
@@ -51,7 +51,7 @@ Just install the plugin and see the example below:
 Also is possible to pass blocks instead of simple strings for content.
 In this way you can create menu item with icons. Like below:
 
-  <% menu do |m| %>
+  <%= menu do |m| %>
     <% m.account account_path do %>
       <%= image_tag "icon.jpg" /> Accounts
     <% end %>

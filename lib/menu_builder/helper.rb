@@ -18,16 +18,9 @@ module MenuBuilder
 
     end
 
-    def menu(options={})
-      concat tag(:ul, options, true)
-      yield Menu.new(self)
-      concat safe_html("</ul>")
+    def menu(options={}, &block)
+      content_tag :ul, capture(Menu.new(self), &block), options
     end
 
-  private
-    def safe_html(html)
-      html.respond_to?(:html_safe) ? html.html_safe : html
-    end
-    
   end
 end
