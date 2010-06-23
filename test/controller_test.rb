@@ -1,5 +1,11 @@
 require "test_helper"
 
+class ActiveSupport::TestCase
+  setup do
+    @routes = MenuBuilder::Routes
+  end
+end
+
 class BooksController < ApplicationController
   menu_item :home
 
