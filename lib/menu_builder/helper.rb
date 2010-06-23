@@ -21,6 +21,5 @@ module MenuBuilder
     def menu(options={}, &block)
       content_tag :ul, capture(Menu.new(self), &block), options
     end
-
   end
 end
