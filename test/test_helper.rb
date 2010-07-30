@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'test/unit'
 
-gem "actionpack", "3.0.0.beta4"
-gem "activemodel", "3.0.0.beta4"
+gem "actionpack", "3.0.0.rc"
+gem "activemodel", "3.0.0.rc"
 
 require 'action_controller'
 require 'action_view'
@@ -16,7 +16,7 @@ require 'menu_builder'
 Dir["#{File.dirname(__FILE__)}/support/*.rb"].each { |f| require f }
 
 MenuBuilder::Routes = ActionDispatch::Routing::RouteSet.new
-MenuBuilder::Routes.draw do |map|
+MenuBuilder::Routes.draw do
   match ':controller(/:action(/:id(.:format)))'
 end
 
