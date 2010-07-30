@@ -26,6 +26,17 @@ Just install the plugin and see the example below:
     ...
   end
 
+You can also change to menu item in action level instead of class level:
+
+  class DashboardController < ApplicationController
+    menu_item :mydashboard
+    
+    def prices
+      menu_item :prices
+      ...
+    end
+  end
+
 === View
 
 ==== ERB code
