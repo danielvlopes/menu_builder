@@ -1,21 +1,19 @@
 module MenuBuilder
   module ViewHelpers
     class Menu
-
       def initialize(context)
         @context = context
-        @menu_item = @context.instance_variable_get('@menu_item')
+        @menu_items = @context.instance_variable_get('@menu_items')
       end
 
-      def current_item?(item)
-        @menu_item.to_s == item.to_s
+      def included_in_current_items?(item)
+        @menu_items.present? && @menu_items.include?(item.to_sym)
       end
 
       def method_missing(item, *args, &block)
-        css_class = "current" if current_item?(item)
+        css_class = "current" if included_in_current_items? item
         @context.content_tag :li, @context.link_to(*args, &block), :class=>css_class
       end
-
     end
 
     def menu(options={}, &block)

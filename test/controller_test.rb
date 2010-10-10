@@ -7,18 +7,35 @@ class ActiveSupport::TestCase
 end
 
 class BooksController < ApplicationController
-  menu_item :home
+  menu_item :books
+  def index ; end
+end
 
-  def index
+class SettingsController < ApplicationController
+  menu_items :settings, :home
+
+  def index ; end
+
+  def notifications
+    menu_item :notification
   end
 end
 
-class MenuBuilderTest < ActionController::TestCase
-  tests BooksController
-
-  test "should assigns the current tab" do
+class BooksControllerTest < ActionController::TestCase
+  test "assigns the current tab" do
     get :index
-    assert_equal(:home, assigns(:menu_item))
+    assert_equal([:books], assigns(:menu_items))
+  end
+end
+
+class SettingsControllerTest < ActionController::TestCase
+  test "ability to assign more than one current tab" do
+    get :index
+    assert_equal([:settings, :home], assigns(:menu_items))
   end
 
+  test "that instance level menu_items override class level" do
+    get :notifications
+    assert_equal([:notification], assigns(:menu_items))
+  end
 end
