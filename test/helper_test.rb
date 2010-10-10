@@ -16,23 +16,23 @@ class HelperTest < ActionView::TestCase
     assert_select "ul#menu"
   end
 
-  test "menu should accept html options like classes and id" do
+  test "menu accept html options like classes and id" do
     concat(menu :id=>"menu", :class=>"tabs" do |m| end)
     assert_select "ul#menu.tabs"
   end
 
-  test "menu should create a line item" do
+  test "menu create a line item" do
     concat(menu { |m| concat m.home "Home", "#" })
     assert_select "li", 1
   end
 
-  test "should create a link inside line item" do
+  test "create a link inside line item" do
     concat(menu { |m| concat m.home "Home", "/" })
     expected = %(<ul><li><a href="/">Home</a></li></ul>)
     assert_dom_equal expected, output_buffer
   end
 
-  test "should set the class to the current item li" do
+  test "set the class to the current item li" do
     @menu_items = [:home]
     concat(menu do |m|
       concat m.home "Home", "/"
@@ -42,7 +42,7 @@ class HelperTest < ActionView::TestCase
     assert_select "li.current", 1
   end
 
-  test "should accept more than one menu item" do
+  test "accept more than one menu item" do
     @menu_items = [:settings, :notifications]
 
     concat(menu do |m|
@@ -54,7 +54,7 @@ class HelperTest < ActionView::TestCase
     assert_select "li.current", 2
   end
 
-  test "should accept more than one menu" do
+  test "accept more than one menu" do
     @menu_items = [:settings, :notifications]
 
     concat(menu do |m|
