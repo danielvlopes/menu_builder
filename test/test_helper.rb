@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'test/unit'
 
-gem "actionpack", "3.0.0.rc"
-gem "activemodel", "3.0.0.rc"
+gem "actionpack", "3.0.0"
+gem "activemodel", "3.0.0"
 
 require 'action_controller'
 require 'action_view'
