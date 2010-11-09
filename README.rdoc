@@ -62,31 +62,31 @@ You can also change to menu item in action level instead of class level:
 Submenus can either be absent or css hidden when the parent menu is not
 the current active one. CSS absent is useful for mouse over menus.
 
-	<%= menu(:id=>"mainMenu", :class=>"menu") do |m| %>
-	  <%= m.account 'Account', account_path, :style => 'float: right' %>
-		<%= submenu(:for => :account) do |m2| %>
-			<%= m2.edit_details, "Edit details", edit_account_path %>
-		<% end %>
-	  <%= m.users 'Users', users_path, :style => 'float: right' %>
-		<%= submenu(:for => :users, :css_hidden => true) do |m2| %>
-			<%= m2.new_user, "New user", new_user_path %>
-		<% end %>
-	<% end %>
+   <%= menu(:id=>"mainMenu", :class=>"menu") do |m| %>
+     <%= m.account 'Account', account_path, :style => 'float: right' %>
+     <%= submenu(:for => :account) do |m2| %>
+       <%= m2.edit_details, "Edit details", edit_account_path %>
+     <% end %>
+     <%= m.users 'Users', users_path, :style => 'float: right' %>
+     <%= submenu(:for => :users, :css_hidden => true) do |m2| %>
+       <%= m2.new_user, "New user", new_user_path %>
+     <% end %>
+   <% end %>
 
 ==== Submenus HTML Result
 
-	<ul id="mainMenu" class="menu">
-	  <li><a href="/accounts">Account</a></li>
-		<!-- Submenu html code only present if parent menu is the current menu -->
-		<ul id="account_submenu">
-			<li><a href="/accounts/1/edit">Edit details</a></li>
-		</ul>
-	  <li><a href="/users">Users</a></li>
-		<!-- Submenu html code always present, only visible if parent menu is the current menu -->
-		<ul id="users_submenu" style="display:none;">
-			<li><a href="/users/new">New user</a></li>
-		</ul>
-	</ul>
+   <ul id="mainMenu" class="menu">
+     <li><a href="/accounts">Account</a></li>
+     <!-- Submenu html code only present if parent menu is the current menu -->
+     <ul id="account_submenu">
+       <li><a href="/accounts/1/edit">Edit details</a></li>
+     </ul>
+     <li><a href="/users">Users</a></li>
+     <!-- Submenu html code always present, only visible if parent menu is the current menu -->
+     <ul id="users_submenu" style="display:none;">
+       <li><a href="/users/new">New user</a></li>
+     </ul>
+   </ul>
 
 ==== Blocks for content
 
