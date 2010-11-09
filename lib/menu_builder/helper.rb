@@ -19,5 +19,17 @@ module MenuBuilder
     def menu(options={}, &block)
       content_tag :ul, capture(Menu.new(self), &block), options
     end
+    
+    def submenu(options={}, &block)
+      menu_items = instance_variable_get('@menu_items')
+      
+      unless menu_items.blank?
+        menu = options.delete(:for)
+        options.merge!(:id => "#{menu}_submenu")
+        options.merge!(:style => "#{options[:style]} display:none;") if options[:css_hidden] && !menu_items.include?(menu.to_sym)
+        
+        content_tag(:ul, capture(Menu.new(self), &block), options) if menu_items.include?(menu.to_sym) || options[:css_hidden]
+      end
+    end
   end
 end
