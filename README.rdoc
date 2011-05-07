@@ -11,7 +11,7 @@ Rail2
   
 Rails3
 
-  gem "menu_builder", '>=0.2.2'
+  gem "menu_builder", '>=0.4.1'
 
 == Usage
 
