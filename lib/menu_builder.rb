@@ -1,5 +1,10 @@
 require 'menu_builder/controller'
 require 'menu_builder/helper'
 
-ActionController::Base.send(:include, MenuBuilder::Controller)
-ActionView::Base.send(:include, MenuBuilder::ViewHelpers)
+class ActionController::Base
+  include MenuBuilder::Controller
+end
+
+class ActionView::Base
+  include MenuBuilder::ViewHelpers
+end
