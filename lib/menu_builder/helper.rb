@@ -23,18 +23,18 @@ module MenuBuilder
         def initialize(context, &block)
           @context = context
           @menu_items = @context.instance_variable_get('@menu_items')
-          @items = []
+          @actual_items = []
 
           block.call(self)
         end
 
         def method_missing item, *args, &block
-          @items << MenuItem.new(item, args, block)
+          @actual_items << MenuItem.new(item, args, block)
           nil
         end
 
         def render
-          @items.map { |item| render_one item }.join.html_safe
+          @actual_items.map { |item| render_one item }.join.html_safe
         end
 
         def render_one item
@@ -57,11 +57,11 @@ module MenuBuilder
         end
 
         def last? item
-          @items.last == item
+          @actual_items.last == item
         end
 
         def first? item
-          @items.first == item
+          @actual_items.first == item
         end
       end
   end
