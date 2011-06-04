@@ -13,19 +13,21 @@ module MenuBuilder
           @item, @args, @block = item, args, block
         end
 
+        def link_to_in_context context
+          context.link_to *@args, &@block
+        end
+
         def to_sym
           item.to_sym
         end
       end
 
       class Menu
-
         def initialize(context, &block)
-          @context = context
-          @menu_items = @context.instance_variable_get('@menu_items')
+          @context      = context
+          @menu_items   = context.instance_variable_get('@menu_items')
           @actual_items = []
-
-          block.call(self)
+          @block        = block
         end
 
         def method_missing item, *args, &block
@@ -34,14 +36,15 @@ module MenuBuilder
         end
 
         def render
+          @block.call(self)
           @actual_items.map { |item| render_one item }.join.html_safe
         end
 
         def render_one item
-          @context.content_tag :li, @context.link_to(*item.args, &item.block), options_for(item)
+          @context.content_tag :li, item.link_to_in_context(@context), html_options_for(item)
         end
 
-        def options_for item
+        def html_options_for item
           css_classes = []
           css_classes << "current" if included_in_current_items? item
           css_classes << "first"   if first? item

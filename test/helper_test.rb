@@ -85,4 +85,14 @@ class HelperTest < ActionView::TestCase
     end)
     assert_select "li.last", 1
   end
+
+  test "pass a block to an item" do
+    concat(menu do |m|
+      concat(m.account "/account" do
+        concat tag(:img, nil, { :src => 'icon.jpg' })
+      end)
+    end)
+
+    assert_select "ul > li > a > img" 
+  end
 end
