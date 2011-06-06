@@ -17,7 +17,7 @@ class HelperTest < ActionView::TestCase
   end
 
   test "menu accept html options like classes and id" do
-    concat(menu :id=>"menu", :class=>"tabs" do |m| end)
+    concat(menu(:id=>"menu", :class=>"tabs") do |m| end)
     assert_select "ul#menu.tabs"
   end
 
@@ -88,7 +88,7 @@ class HelperTest < ActionView::TestCase
 
   test "pass a block to an item" do
     concat(menu do |m|
-      concat(m.account "/account" do
+      concat(m.account("/account") do
         concat tag(:img, nil, { :src => 'icon.jpg' })
       end)
     end)
