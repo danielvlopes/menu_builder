@@ -28,8 +28,7 @@ class HelperTest < ActionView::TestCase
 
   test "create a link inside line item" do
     concat(menu { |m| concat m.home "Home", "/" })
-    expected = %(<ul><li><a href="/">Home</a></li></ul>)
-    assert_dom_equal expected, output_buffer
+    assert_select "ul > li > a"
   end
 
   test "set the class to the current item li" do
@@ -68,5 +67,32 @@ class HelperTest < ActionView::TestCase
     end)
 
     assert_select "li.current", 2
+  end
+
+  test "marks the first item with class .first" do
+    concat(menu do |m|
+      concat m.home    "Home", "/"
+      concat m.contact "Store", "/store"
+    end)
+    assert_select "li.first", 1
+  end
+
+  test 'marks the last item with class .last' do
+    concat(menu do |m|
+      concat m.home    "Home", "/"
+      concat m.contact "Store", "/store"
+      concat m.notifications "Settings", "/settings"
+    end)
+    assert_select "li.last", 1
+  end
+
+  test "pass a block to an item" do
+    concat(menu do |m|
+      concat(m.account "/account" do
+        concat tag(:img, nil, { :src => 'icon.jpg' })
+      end)
+    end)
+
+    assert_select "ul > li > a > img" 
   end
 end
