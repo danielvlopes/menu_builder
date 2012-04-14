@@ -1,7 +1,8 @@
 module MenuBuilder
   module ViewHelpers
     def menu(options={}, &block)
-      content_tag :ul, Menu.new(self, &block).render, options
+      current_item_class = options.delete :current_item_class
+      content_tag :ul, Menu.new(self, current_item_class, &block).render, options
     end
 
     private
@@ -23,11 +24,12 @@ module MenuBuilder
       end
 
       class Menu
-        def initialize(context, &block)
-          @context      = context
-          @menu_items   = context.instance_variable_get('@menu_items')
-          @actual_items = []
-          @block        = block
+        def initialize(context, current_item_class="current", &block)
+          @context            = context
+          @current_item_class = current_item_class || "current"
+          @menu_items         = context.instance_variable_get('@menu_items')
+          @actual_items       = []
+          @block              = block
         end
 
         def method_missing item, *args, &block
@@ -46,7 +48,7 @@ module MenuBuilder
 
         def html_options_for item
           css_classes = []
-          css_classes << "current" if included_in_current_items? item
+          css_classes << "#{@current_item_class}" if included_in_current_items? item
           css_classes << "first"   if first? item
           css_classes << "last"    if last? item
 
