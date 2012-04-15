@@ -43,7 +43,7 @@ class HelperTest < ActionView::TestCase
   
   test "customize the current item class" do
     @menu_items = [:home]
-    concat(menu({:current_item_class => "active"}) { |m|
+    concat(menu({:current_class => "active"}) { |m|
       concat m.home "Home", "/"
       concat m.contact "Store", "/store"
     })
@@ -67,7 +67,7 @@ class HelperTest < ActionView::TestCase
   test "accept more than one menu item for a custom current item class" do
     @menu_items = [:settings, :notifications]
 
-    concat(menu({:current_item_class => "active"}) { |m|
+    concat(menu({:current_class => "active"}) { |m|
       concat m.home "Home", "/"
       concat m.notifications "Notifications", "/notifications"
       concat m.settings "Settings", "/settings"
