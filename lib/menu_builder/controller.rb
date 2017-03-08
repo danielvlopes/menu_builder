@@ -11,7 +11,7 @@ module MenuBuilder
       def menu_items(*items)
         options = items.extract_options!
 
-        before_filter(options) do |controller|
+        before_action(options) do |controller|
           controller.instance_variable_set('@menu_items', items)
         end
       end
