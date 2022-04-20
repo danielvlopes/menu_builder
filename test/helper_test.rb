@@ -40,7 +40,7 @@ class HelperTest < ActionView::TestCase
 
     assert_select "li.current", 1
   end
-  
+
   test "customize the current item class" do
     @menu_items = [:home]
     concat(menu({:current_class => "active"}) { |m|
@@ -63,7 +63,7 @@ class HelperTest < ActionView::TestCase
 
     assert_select "li.current", 2
   end
-  
+
   test "accept more than one menu item for a custom current item class" do
     @menu_items = [:settings, :notifications]
 
@@ -76,8 +76,8 @@ class HelperTest < ActionView::TestCase
     assert_select "li.current", 0
     assert_select "li.active", 2
   end
-  
-  
+
+
   test "accept more than one menu" do
     @menu_items = [:settings, :notifications]
 
@@ -120,5 +120,5 @@ class HelperTest < ActionView::TestCase
 
     assert_select "ul > li > a > img"
   end
-  
+
 end

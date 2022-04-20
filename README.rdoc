@@ -1,16 +1,12 @@
 = menu_builder
 
-A simple helper to make easier the process of highlighting menu items based on current
-url. The goal here is to reduce the amount of if/elses you would typically need in your
-views to achieve the same results.
+A simple helper + controller macro to make easier to highligh menu items based on actions (instead of urls)
 
 == Instalation
 
   gem "menu_builder"
 
 == Usage
-
-First flag at class level in your Controller which item should be highlighted
 
 === Controller
 
@@ -19,15 +15,24 @@ First flag at class level in your Controller which item should be highlighted
     ...
   end
 
-You can also change to menu item at action level instead of class level. This
-option is helpful when you have most of the actions pointing to one menu item
-but a few actions pointing to another.
+You can also change to menu item at action level instead of class level.
 
   class DashboardController < ApplicationController
     menu_item :mydashboard
 
     def prices
       menu_item :prices
+      ...
+    end
+  end
+
+And you can prepend or append just one item to the collection
+
+  class DashboardController < ApplicationController
+    menu_item :mydashboard
+
+    def prices
+      append_menu_item :prices
       ...
     end
   end

@@ -1,0 +1,137 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/**
+  TargetRubyVersion: 3.0
+  NewCops: enable
+
+Rails:
+  Enabled: true
+
+Rails/Validation:
+  Enabled: false
+
+Rails/Delegate:
+  Enabled: false
+
+Rails/DynamicFindBy:
+  Whitelist:
+    - find_by_expiring_token
+    - find_by_alias
+    - find_by_unicode
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+    - staging
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/Alias:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/SymbolProc:
+  Enabled: false
+
+Style/Semicolon:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Max: 15
+
+Layout/LineLength:
+  Exclude:
+    - config/routes.rb
+    - config/routes/marketing.rb
+  Max: 120
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+  Enabled: true
+
+Naming/PredicateName:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/LambdaCall:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/SingleLineMethods:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
